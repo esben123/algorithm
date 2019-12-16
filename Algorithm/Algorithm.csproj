@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Components\Component.cs" />
     <Compile Include="eList.cs" />
-    <Compile Include="FontRenderer.cs" />
+    <Compile Include="Components\FontRenderer.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Program.cs" />

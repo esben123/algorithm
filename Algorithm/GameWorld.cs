@@ -1,20 +1,36 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace Algorithm
 {
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Main : Game
+    public class GameWorld : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        eList<int> test = new eList<int>();
+        List<GameObject> allGameObjects = new List<GameObject>();
+        List<GameObject> toBeAdded = new List<GameObject>();
+        List<GameObject> toBeRemoved = new List<GameObject>();
 
-        public Main()
+        private static GameWorld instance;
+        public static GameWorld Instance
+        {
+
+            get
+            {
+                if (instance == null)
+                    instance = new GameWorld();
+
+                return instance;
+            }
+        }
+
+        public GameWorld()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -32,14 +48,9 @@ namespace Algorithm
 
             base.Initialize();
 
-            test.Add(15);
-            test.Add(7);
 
-            foreach (int i in test)
-            {
-                System.Console.WriteLine(i.ToString());
-
-            }
+            TileFactory.Instance.create("floor", new Point(2, 2));
+            
         }
 
         /// <summary>
@@ -50,8 +61,10 @@ namespace Algorithm
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+           // font = Content.Load<SpriteFont>("font");
 
-            // TODO: use this.Content to load your game content here
+            
+
         }
 
         /// <summary>
@@ -63,6 +76,16 @@ namespace Algorithm
             // TODO: Unload any non ContentManager content here
         }
 
+        public void AddGameObject(GameObject obj)
+        {
+            toBeAdded.Add(obj);
+        }
+
+        
+        public void RemoveGameObject(GameObject obj)
+        {
+            toBeRemoved.Add(obj);
+        }
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -70,10 +93,22 @@ namespace Algorithm
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            foreach (GameObject go in toBeAdded)
+            {
+                allGameObjects.Add(go);
+            }
+            toBeAdded.Clear();
 
-            // TODO: Add your update logic here
+            foreach (GameObject go in toBeRemoved)
+            {
+                allGameObjects.Remove(go);
+            }
+            toBeRemoved.Clear();
+
+            foreach (GameObject go in allGameObjects)
+            {
+                go.Update(gameTime);
+            }
 
             base.Update(gameTime);
         }
@@ -85,8 +120,15 @@ namespace Algorithm
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            spriteBatch.Begin(SpriteSortMode.Deferred);
 
-            // TODO: Add your drawing code here
+            foreach (GameObject go in allGameObjects)
+            {
+                go.Draw(spriteBatch);
+            }
+
+            spriteBatch.End();
+         
 
             base.Draw(gameTime);
         }

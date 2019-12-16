@@ -33,6 +33,7 @@ namespace Algorithm
         {
             sprite = content.Load<Texture2D>(spritename);
             origin = new Vector2(sprite.Width / 2, sprite.Height / 2);
+            Console.WriteLine("spr lc" + spritename);
         }
 
         public override void Draw(SpriteBatch spritebatch)

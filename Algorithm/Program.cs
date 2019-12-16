@@ -14,8 +14,8 @@ namespace Algorithm
         [STAThread]
         static void Main()
         {
-            using (var game = new Main())
-                game.Run();
+           
+                GameWorld.Instance.Run();
         }
     }
 #endif

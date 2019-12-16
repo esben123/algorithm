@@ -48,9 +48,9 @@ namespace Algorithm
             }
         }
 
-        public Transform(Vector2 transform)
+        public Transform(Point gridPos)
         {
-
+            GridPos = gridPos;
         }
         public void Translate(Vector2 translation)
         {

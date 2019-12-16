@@ -36,7 +36,7 @@ namespace Algorithm
         public override void Draw(SpriteBatch spriteBatch)
         {
             Vector2 tempOffset = new Vector2(-16, -16);
-            spriteBatch.DrawString(font, stringContent, Parent.Transform.Position + tempOffset, renderColor, 0f, Vector2.Zero, 1f, SpriteEffects.None, layer);
+            spriteBatch.DrawString(font, stringContent, Parent.Transform.Position + tempOffset, renderColor, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }
 }

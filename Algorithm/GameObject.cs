@@ -39,7 +39,6 @@ namespace Algorithm
 
         public virtual void LoadContent(ContentManager content)
         {
-            Console.WriteLine("lc");
             foreach (Component comp in components)
             {
                 comp.LoadContent(content);

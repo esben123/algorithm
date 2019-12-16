@@ -55,7 +55,8 @@ namespace Algorithm
                     TileFactory.Instance.create("floor", new Point(x, y));
                 }
             }
-            
+
+            ShopperFactory.Instance.create("shopper", new Point(1, 10));
         }
 
         /// <summary>

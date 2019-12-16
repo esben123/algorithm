@@ -48,8 +48,13 @@ namespace Algorithm
 
             base.Initialize();
 
-
-            TileFactory.Instance.create("floor", new Point(2, 2));
+            for (int y = 1; y < 15; y++)
+            {
+                for (int x = 1; x < 15; x++)
+                {
+                    TileFactory.Instance.create("floor", new Point(x, y));
+                }
+            }
             
         }
 

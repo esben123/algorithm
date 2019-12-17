@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Algorithm
 {
-    class Node
+    public class Node
     {
        
         private int fCost = 0;

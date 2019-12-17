@@ -15,5 +15,13 @@ namespace Algorithm
             List<Node> closedList;
 
         }
+
+        public int GetManhattanDistance(Node a, Node b)
+        {
+            int x = Math.Abs(a.GridPos.X - b.GridPos.X);
+            int y = Math.Abs(a.GridPos.Y - b.GridPos.Y);
+
+            return x + y;
+        }
     }
 }

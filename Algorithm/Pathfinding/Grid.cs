@@ -10,7 +10,7 @@ namespace Algorithm
     public class Grid
     {
         private Node[,] allNodes;
-        string testString ="";
+       // string testString ="";
 
         public void CreateGrid()
         {
@@ -23,20 +23,39 @@ namespace Algorithm
                     bool isFilled = GameWorld.ShopGo[x, y].Item == Item.Nothing;
                     allNodes[x,y] = new Node(new Point(x, y), isFilled);
 
-                    testString += isFilled.ToString();
-                    testString += " ";
+         //           testString += isFilled.ToString();
+           //         testString += " ";
                 }
-                testString += "\n";
+             //   testString += "\n";
 
             }
 
-            Console.WriteLine(testString);
+           // Console.WriteLine(testString);
 
         }
 
+        public List<Node> GetNeighbours(Node node)
+        {
+            List<Node> neighbours = new List<Node>();
 
-       
+            for (int y = -1; y <= 1; y++)
+            {
+                for (int x = -1; x <= 1; x++)
+                {
+                    if (x == 0 && y == 0)        
+                        continue;          
 
+                    int checkX = node.GridPos.X + x;
+                    int checkY = node.GridPos.Y + y;
 
+                    if (checkX >= 0 && checkX < allNodes.GetLength(1) && checkY >= 0 && checkY < allNodes.GetLength(0)) //check for out of bounds
+                    {
+                        if (!allNodes[checkY, checkX].IsFilled)
+                            neighbours.Add(allNodes[checkY, checkX]); 
+                    }
+                }
+            }
+            return neighbours;
+        }
     }
 }

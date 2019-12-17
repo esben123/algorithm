@@ -13,7 +13,8 @@ namespace Algorithm
         Armour = 2,
         Helmet = 3,
         Necronomicon = 4,
-        CallOfCthulhu = 5
+        CallOfCthulhu = 5,
+        Wall = 6
     }
 
         public class ShoppingList : Component

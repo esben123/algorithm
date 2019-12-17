@@ -17,7 +17,7 @@ namespace Algorithm
         List<GameObject> toBeAdded = new List<GameObject>();
         List<GameObject> toBeRemoved = new List<GameObject>();
 
-        private static Vector2 shopDimensions;
+        private static Vector2 shopDimensions = new Vector2(17, 13);
         private static GameObject[,] shopGo;
 
         private static GameWorld instance;
@@ -53,7 +53,6 @@ namespace Algorithm
             // TODO: Add your initialization logic here
 
             base.Initialize();
-            shopDimensions = new Vector2(17, 13);
 
             shopGo = new GameObject[(int)shopDimensions.X, (int)shopDimensions.Y];
 
@@ -61,19 +60,24 @@ namespace Algorithm
             {
                 for (int x = 1; x < shopDimensions.X; x++)
                 {
-                    TileFactory.Instance.create("floor", new Point(x, y));
+                    if(x == 1 || x == shopDimensions.X -1)
+                        TileFactory.Instance.create("wall", new Point(x, y));
+                    else if (x == 5 && y < shopDimensions.Y - 5)
+                        TileFactory.Instance.create("wall", new Point(x, y));
+                    else
+                        TileFactory.Instance.create("floor", new Point(x, y));
                 }
             }
             TileFactory.Instance.create("helmets", new Point(7, 1));
             TileFactory.Instance.create("book_big", new Point(2, 1));
-            TileFactory.Instance.create("book_small", new Point(3, 5));
+            TileFactory.Instance.create("book_small", new Point(3, 1));
             TileFactory.Instance.create("spear", new Point(8, 10));
             TileFactory.Instance.create("torso", new Point(12, 1));
 
 
             Grid testGrid = new Grid();
             testGrid.CreateGrid();
-            ShopperFactory.Instance.create("shopper", new Point(1, 10));
+            ShopperFactory.Instance.create("shopper", new Point(3, 10));
         }
 
         /// <summary>

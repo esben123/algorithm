@@ -43,6 +43,7 @@ namespace Algorithm
                 case "spear":
                     obj.Item = Item.Spear;
                     Shop.ItemsForSale.Add(obj);
+
                     break;
                 case "helmets":
                     obj.Item = Item.Helmet;
@@ -58,6 +59,7 @@ namespace Algorithm
                     break;
             }
 
+            GameWorld.ShopGo[gridPos.X, gridPos.Y] = obj;
             obj.LoadContent(GameWorld.Instance.Content);
             GameWorld.Instance.AddGameObject(obj);
         }

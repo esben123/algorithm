@@ -28,7 +28,6 @@ namespace Algorithm
             SpriteRenderer spr = new SpriteRenderer(name);
             ShoppingList sl = new ShoppingList();
             FontRenderer fr = new FontRenderer(sl.GetList());
-            sl.FontRenderer = fr;
 
             obj.AddComponent(tx);
             obj.AddComponent(spr);

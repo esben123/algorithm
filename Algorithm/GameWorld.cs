@@ -17,6 +17,9 @@ namespace Algorithm
         List<GameObject> toBeAdded = new List<GameObject>();
         List<GameObject> toBeRemoved = new List<GameObject>();
 
+        private static Vector2 shopDimensions;
+        private static GameObject[,] shopGo;
+
         private static GameWorld instance;
         public static GameWorld Instance
         {
@@ -29,6 +32,9 @@ namespace Algorithm
                 return instance;
             }
         }
+
+        public static Vector2 ShopDimensions { get => shopDimensions; }
+        public static GameObject[,] ShopGo { get => shopGo; set => shopGo = value; } 
 
         public GameWorld()
         {
@@ -47,10 +53,13 @@ namespace Algorithm
             // TODO: Add your initialization logic here
 
             base.Initialize();
+            shopDimensions = new Vector2(17, 13);
 
-            for (int y = 1; y < 15; y++)
+            shopGo = new GameObject[(int)shopDimensions.X, (int)shopDimensions.Y];
+
+            for (int y = 1; y < shopDimensions.Y; y++)
             {
-                for (int x = 1; x < 15; x++)
+                for (int x = 1; x < shopDimensions.X; x++)
                 {
                     TileFactory.Instance.create("floor", new Point(x, y));
                 }
@@ -62,6 +71,8 @@ namespace Algorithm
             TileFactory.Instance.create("torso", new Point(12, 1));
 
 
+            Grid testGrid = new Grid();
+            testGrid.CreateGrid();
             ShopperFactory.Instance.create("shopper", new Point(1, 10));
         }
 

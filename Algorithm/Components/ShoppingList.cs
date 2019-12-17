@@ -24,8 +24,6 @@ namespace Algorithm
         private int itemIndex;
         private int nrOfItems;
 
-        private FontRenderer fontRenderer;
-        public FontRenderer FontRenderer { get => fontRenderer; set => fontRenderer = value; }
 
         public ShoppingList()
         {
@@ -60,7 +58,7 @@ namespace Algorithm
         public void RemoveItem()
         {
             itemsToPurchase.RemoveAt(0);
-            fontRenderer.SetContent(GetList());
+            Parent.FontRenderer.SetContent(GetList());
         }
     }
 }

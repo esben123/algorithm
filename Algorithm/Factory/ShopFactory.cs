@@ -67,6 +67,11 @@ namespace Algorithm
                     Shop.ItemsForSale.Add(obj);
                     spr.RenderOffset = new Vector2(0, -13);
                     break;
+                case "register":
+                    obj.Item = Item.Register;
+                    Shop.ItemsForSale.Add(obj);
+                    spr.RenderOffset = new Vector2(0, -13);
+                    break;
             }
 
             GameWorld.ShopGo[gridPos.X, gridPos.Y] = obj;

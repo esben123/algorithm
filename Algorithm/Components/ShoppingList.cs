@@ -38,5 +38,18 @@ namespace Algorithm
                 Console.WriteLine(item.ToString());
             }
         }
+
+        public string GetList()
+        {
+            string list = "";
+           
+            for (int i = 0; i < itemsToPurchase.Count; i++)
+            {
+                list += itemsToPurchase[i].ToString();
+                if (i < itemsToPurchase.Count -1)
+                    list += "\n";
+            }
+            return list;
+        }
     }
 }

@@ -27,9 +27,11 @@ namespace Algorithm
             Transform tx = new Transform(gridPos);
             SpriteRenderer spr = new SpriteRenderer(name);
             ShoppingList sl = new ShoppingList();
+            FontRenderer fr = new FontRenderer(sl.GetList());
             obj.AddComponent(tx);
             obj.AddComponent(spr);
             obj.AddComponent(sl);
+            obj.AddComponent(fr);
 
             switch (name)
             {

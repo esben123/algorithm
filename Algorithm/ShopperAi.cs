@@ -6,14 +6,8 @@ using System.Threading.Tasks;
 
 namespace Algorithm
 {
-    class Astar
+    class ShopperAi : Component
     {
 
-        public void FindPath(Node start, Node end)
-        {
-            List<Node> openList;
-            List<Node> closedList;
-
-        }
     }
 }

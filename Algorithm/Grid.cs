@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace Algorithm
 {
-    class Astar
+    public class Grid
     {
+        private List<Node> allNodes;
 
-        public void FindPath(Node start, Node end)
-        {
-            List<Node> openList;
-            List<Node> closedList;
 
-        }
+
     }
 }

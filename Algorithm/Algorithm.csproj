@@ -41,6 +41,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Grid.cs" />
     <Compile Include="Pathfinding\Astar.cs" />
     <Compile Include="Components\Component.cs" />
     <Compile Include="Pathfinding\Edge.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Factory\ShopFactory.cs" />
     <Compile Include="Factory\ShopperFactory.cs" />
     <Compile Include="Shop.cs" />
+    <Compile Include="ShopperAi.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

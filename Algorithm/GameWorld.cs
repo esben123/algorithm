@@ -55,6 +55,12 @@ namespace Algorithm
                     TileFactory.Instance.create("floor", new Point(x, y));
                 }
             }
+            TileFactory.Instance.create("helmets", new Point(7, 1));
+            TileFactory.Instance.create("book_big", new Point(2, 1));
+            TileFactory.Instance.create("book_small", new Point(3, 5));
+            TileFactory.Instance.create("spear", new Point(8, 10));
+            TileFactory.Instance.create("torso", new Point(12, 1));
+
 
             ShopperFactory.Instance.create("shopper", new Point(1, 10));
         }

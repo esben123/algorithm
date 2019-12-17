@@ -36,6 +36,26 @@ namespace Algorithm
             {
                 case "floor":                
                 break;
+                case "torso":
+                    obj.Item = Item.Armour;
+                    Shop.ItemsForSale.Add(obj);
+                break;
+                case "spear":
+                    obj.Item = Item.Spear;
+                    Shop.ItemsForSale.Add(obj);
+                    break;
+                case "helmets":
+                    obj.Item = Item.Helmet;
+                    Shop.ItemsForSale.Add(obj);
+                    break;
+                case "book_big":
+                    obj.Item = Item.CallOfCthulhu;
+                    Shop.ItemsForSale.Add(obj);
+                    break;
+                case "book_small":
+                    obj.Item = Item.Necronomicon;
+                    Shop.ItemsForSale.Add(obj);
+                    break;
             }
 
             obj.LoadContent(GameWorld.Instance.Content);

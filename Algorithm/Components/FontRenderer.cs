@@ -17,7 +17,7 @@ namespace Algorithm
         private Color renderColor = Color.Black;
         Texture2D dummyTexture;
         Rectangle dummyRectangle;
-        Vector2 fontWidth;
+        Vector2 fontsize;
 
         public Color RenderColor { get => renderColor; set => renderColor = value; }
 
@@ -30,13 +30,13 @@ namespace Algorithm
         {
             font = content.Load<SpriteFont>("font");
             dummyTexture = content.Load<Texture2D>("1pxbg");
-            fontWidth = font.MeasureString(stringContent);
+            fontsize = font.MeasureString(stringContent);
         }
 
         public void SetContent(string content)
         {
             stringContent = content;
-            fontWidth = font.MeasureString(stringContent);
+            fontsize = font.MeasureString(stringContent);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -44,7 +44,7 @@ namespace Algorithm
 
             
             Vector2 tempOffset = new Vector2(-16, 16);
-            dummyRectangle = new Rectangle(10,10 , (int)fontWidth.X, (int)fontWidth.Y);
+            dummyRectangle = new Rectangle(10,10 , (int)fontsize.X, (int)fontsize.Y);
 
             spriteBatch.Draw(dummyTexture, Parent.Transform.Position + tempOffset, dummyRectangle, Color.White);
 

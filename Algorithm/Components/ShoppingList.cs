@@ -8,11 +8,12 @@ namespace Algorithm
 {
     public enum Item
     {
-        Spear = 0,
-        Armour = 1,
-        Helmet = 2,
-        Necronomicon = 3,
-        CallOfCthulhu = 4
+        Nothing = 0,
+        Spear = 1,
+        Armour = 2,
+        Helmet = 3,
+        Necronomicon = 4,
+        CallOfCthulhu = 5
     }
 
         public class ShoppingList : Component
@@ -29,7 +30,7 @@ namespace Algorithm
 
             for (int i = 0; i < nrOfItems; i++)
             {
-                itemIndex = rnd.Next(0, 5);
+                itemIndex = rnd.Next(1, 6);
                 item = (Item)itemIndex;
                 itemsToPurchase.Add(item);
             }

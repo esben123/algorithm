@@ -55,8 +55,9 @@
     <Compile Include="Components\SpriteRenderer.cs" />
     <Compile Include="Components\Transform.cs" />
     <Compile Include="Components\ShoppingList.cs" />
-    <Compile Include="Factory\TileFactory.cs" />
+    <Compile Include="Factory\ShopFactory.cs" />
     <Compile Include="Factory\ShopperFactory.cs" />
+    <Compile Include="Shop.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

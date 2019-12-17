@@ -17,10 +17,13 @@ namespace Algorithm
         private Transform transform;
         private ShoppingList shoppingList;
 
+        private Item item = Item.Nothing;
+
         public SpriteRenderer SpriteRenderer { get => spriteRenderer; set => spriteRenderer = value; }
         public Transform Transform { get => transform; set => transform = value; }
         public ShoppingList ShoppingList { get => shoppingList; set => shoppingList = value; }
         public FontRenderer FontRenderer { get => fontRenderer; set => fontRenderer = value; }
+        public Item Item { get => item; set => item = value; }
 
         public void AddComponent(Component component)
         {

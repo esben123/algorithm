@@ -17,7 +17,7 @@ namespace Algorithm
         List<GameObject> toBeAdded = new List<GameObject>();
         List<GameObject> toBeRemoved = new List<GameObject>();
 
-        private static Point shopDimensions = new Point(17, 13);
+        private static Point shopDimensions = new Point(24, 14);
         private static GameObject[,] shopGo;
 
         private static GameWorld instance;
@@ -78,7 +78,7 @@ namespace Algorithm
 
             Grid testGrid = new Grid();
             testGrid.CreateGrid();
-            ShopperFactory.Instance.create("shopper", new Point(3, 10));
+            ShopperFactory.Instance.create("shopper", new Point(2, shopDimensions.Y - 2));
         }
 
         /// <summary>

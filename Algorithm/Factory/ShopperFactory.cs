@@ -28,11 +28,13 @@ namespace Algorithm
             SpriteRenderer spr = new SpriteRenderer(name);
             ShoppingList sl = new ShoppingList();
             FontRenderer fr = new FontRenderer(sl.GetList());
+            ShopperAi sai = new ShopperAi();
 
             obj.AddComponent(tx);
             obj.AddComponent(spr);
             obj.AddComponent(sl);
             obj.AddComponent(fr);
+            obj.AddComponent(sai);
 
             switch (name)
             {

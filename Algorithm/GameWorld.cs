@@ -64,15 +64,21 @@ namespace Algorithm
                         TileFactory.Instance.create("wall", new Point(x, y));
                     else if (x == 5 && y < shopDimensions.Y - 5)
                         TileFactory.Instance.create("wall", new Point(x, y));
+                    else if (x > 8 && x < shopDimensions.X - 5 && y == shopDimensions.Y - 9)
+                        TileFactory.Instance.create("wall", new Point(x, y));
+                    else if (x > 9 && x < shopDimensions.X - 6 && y == shopDimensions.Y - 5)
+                        TileFactory.Instance.create("wall", new Point(x, y));
+                    else if (x == 13 && y < shopDimensions.Y - 9)
+                        TileFactory.Instance.create("wall", new Point(x, y));
                     else
                         TileFactory.Instance.create("floor", new Point(x, y));
                 }
             }
             TileFactory.Instance.create("helmets", new Point(7, 1));
             TileFactory.Instance.create("book_big", new Point(2, 1));
-            TileFactory.Instance.create("book_small", new Point(3, 1));
-            TileFactory.Instance.create("spear", new Point(8, 10));
-            TileFactory.Instance.create("torso", new Point(12, 1));
+            TileFactory.Instance.create("book_small", new Point(19, 1));
+            TileFactory.Instance.create("spear", new Point(14, shopDimensions.Y - 4));
+            TileFactory.Instance.create("torso", new Point(16,1));
             TileFactory.Instance.create("register", new Point(shopDimensions.X - 3, shopDimensions.Y - 3));
 
 

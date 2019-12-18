@@ -10,7 +10,13 @@ namespace Algorithm
     public class Grid
     {
         private Node[,] allNodes;
-       // string testString ="";
+
+        public Grid()
+        {
+            CreateGrid();
+        }
+
+         string testString ="";
 
         public void CreateGrid()
         {
@@ -23,15 +29,36 @@ namespace Algorithm
                     bool isFilled = GameWorld.ShopGo[x, y].Item == Item.Nothing;
                     allNodes[x,y] = new Node(new Point(x, y), isFilled);
 
-         //           testString += isFilled.ToString();
-           //         testString += " ";
+                    testString += isFilled.ToString();
+                    testString += " ";
                 }
-             //   testString += "\n";
+                testString += "\n";
 
             }
 
-           // Console.WriteLine(testString);
+            Console.WriteLine(testString);
 
+        }
+
+        public Node FindnodeAtGridpos(Point gridPos)
+        {
+            return allNodes[gridPos.X, gridPos.Y];
+        }
+
+        public Node FindNodeByItemType(Item item)
+        {
+            GameObject temp = new GameObject(); ;
+
+            for (int y = 1; y < GameWorld.ShopDimensions.Y; y++)
+            {
+                for (int x = 1; x < GameWorld.ShopDimensions.X; x++)
+                {
+                    temp = GameWorld.ShopGo[x, y];
+                    if (temp.Item == item)
+                        return FindnodeAtGridpos(temp.Transform.GridPos);
+                }
+            }
+                return null;
         }
 
         public List<Node> GetNeighbours(Node node)

@@ -44,6 +44,9 @@ namespace Algorithm
 
             obj.LoadContent(GameWorld.Instance.Content);
             GameWorld.Instance.AddGameObject(obj);
+
+            
+          Console.WriteLine(obj.ShopperAi.GetGoal().GridPos);
         }
     }
 }

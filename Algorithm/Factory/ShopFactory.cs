@@ -7,16 +7,16 @@ using Microsoft.Xna.Framework;
 
 namespace Algorithm
 {
-    class TileFactory : Factory
+    class ShopFactory : Factory
     {
-        private static TileFactory instance;
-        public static TileFactory Instance        
+        private static ShopFactory instance;
+        public static ShopFactory Instance        
         {
 
             get
             {
                 if (instance == null)
-                    instance = new TileFactory();
+                    instance = new ShopFactory();
 
                 return instance;
             }

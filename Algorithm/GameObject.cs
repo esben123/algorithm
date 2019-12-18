@@ -16,6 +16,7 @@ namespace Algorithm
         private FontRenderer fontRenderer;
         private Transform transform;
         private ShoppingList shoppingList;
+        private ShopperAi shopperAi;
 
         private Item item = Item.Nothing;
 
@@ -24,6 +25,7 @@ namespace Algorithm
         public ShoppingList ShoppingList { get => shoppingList; set => shoppingList = value; }
         public FontRenderer FontRenderer { get => fontRenderer; set => fontRenderer = value; }
         public Item Item { get => item; set => item = value; }
+        public ShopperAi ShopperAi { get => shopperAi; set => shopperAi = value; }
 
         public void AddComponent(Component component)
         {
@@ -38,6 +40,12 @@ namespace Algorithm
 
             else if (component is FontRenderer)
                 fontRenderer = (FontRenderer)component;
+
+            else if (component is ShoppingList)
+                shoppingList = (ShoppingList)component;
+
+            else if (component is ShopperAi)
+                shopperAi = (ShopperAi)component;
         }
 
         public virtual void LoadContent(ContentManager content)

@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace Algorithm
 {
-    class ShopperAi : Component
+    public class ShopperAi : Component
     {
+        
+
+        public Node GetGoal()
+        {
+            Grid grid = new Grid();
+
+            Item itemTofind = Parent.ShoppingList.itemToPurchase();
+          //  Console.WriteLine(itemTofind.ToString());
+            return grid.FindNodeByItemType(itemTofind);
+        }
 
     }
 }

@@ -29,14 +29,14 @@ namespace Algorithm
                     bool isFilled = GameWorld.ShopGo[x, y].Item == Item.Nothing;
                     allNodes[x,y] = new Node(new Point(x, y), isFilled);
 
-                    testString += isFilled.ToString();
-                    testString += " ";
+                  //  testString += isFilled.ToString();
+                //    testString += " ";
                 }
-                testString += "\n";
+              //  testString += "\n";
 
             }
 
-            Console.WriteLine(testString);
+           // Console.WriteLine(testString);
 
         }
 

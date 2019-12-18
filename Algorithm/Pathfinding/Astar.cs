@@ -9,31 +9,49 @@ namespace Algorithm
     class Astar
     {
         public List<Node> path;
-        public void FindPath(Node start, Node end)
+
+        public void FindPath(Node start, Node end, Grid snapshotGrid)
         {
             List<Node> openList = new List<Node>();
             List<Node> closedList = new List<Node>();
 
             openList.Add(start);
+            Node currentNode = start;   //slide 1
 
-            while(openList.Count > 0)
+            while (openList.Count > 0)                      //slide 7
             {
-                Node currentNode = openList[0];
+                foreach (Node openNode in openList)         //slide 7
+                    if (openNode.FCost < currentNode.FCost) //slide 7
+                        currentNode = openNode;             //slide 7
 
-                for (int i = 1; i < openList.Count; i++)
+                List<Node> neighbouringNodes = snapshotGrid.GetNeighbours(currentNode); //slide 2 
+                foreach (Node nNode in neighbouringNodes)   //slide 9.2
+                    if (!openList.Contains(nNode))          //slide 9.2
+                        openList.Add(nNode);                //slide 9.2
+
+                closedList.Add(currentNode);    //slide 5 + 8
+
+
+                foreach (Node n in neighbouringNodes)       //slide 3
                 {
-                    if(openList[i].FCost < currentNode.FCost || openList[i].FCost == currentNode.FCost && openList[i].HCost < currentNode.HCost)
-                    {
-                        currentNode = openList[i];
-                    }
+                     int score = currentNode.GCost + GetHcost(n, end);
+
+                    n.Parent = currentNode;     //slide 4 - 9.3
+
+                    n.GCost = currentNode.GCost + MoveCost(currentNode, n);     //slide 6
+                    n.HCost = GetHcost(n, end);                                 //slide 6
+
+                    if (!openList.Contains(n))              //slide 3
+                        openList.Add(n);                    //slide 3
+                    else if ()                  //slide 9.4
+
                 }
-                openList.Remove(currentNode);
-                closedList.Add(currentNode);
             }
-            
+           
+
         }
 
-        public int GetManhattanDistance(Node a, Node b)
+        public int GetHcost(Node a, Node b) //ManhattanDistance
         {
             int x = Math.Abs(a.GridPos.X - b.GridPos.X);
             int y = Math.Abs(a.GridPos.Y - b.GridPos.Y);
@@ -43,7 +61,7 @@ namespace Algorithm
 
         public int MoveCost(Node current, Node other)
         {
-            if (GetManhattanDistance(current, other) == 20)
+            if (GetHcost(current, other) == 20)
                 return 14;
 
             else

@@ -99,11 +99,13 @@ namespace Algorithm
 
         public virtual T RemoveLast()
         {
+            var t = head.item;
             var current = head;
-            while (current.next != null)
+            while (current.next != null) //We follow the list until we find the last item.
             {
-
+                current = current.next;
             }
+
 
             return t;
         }

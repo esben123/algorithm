@@ -85,7 +85,7 @@ namespace Algorithm
 
            
             ShopperFactory.Instance.create("shopper", new Point(2, shopDimensions.Y - 2));
-
+            ShopperManager.GetMoving();
         }
 
         /// <summary>

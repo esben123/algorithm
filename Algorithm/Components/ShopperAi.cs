@@ -8,15 +8,26 @@ namespace Algorithm
 {
     public class ShopperAi : Component
     {
-        
+        Grid grid;
 
-        public Node GetGoal()
+        public ShopperAi()
         {
-            Grid grid = new Grid();
+           
+            
+        }
 
+        public void FindPathToGoal()
+        {
+           
+           grid = new Grid();
+            Console.WriteLine("trying shlazzl");
             Item itemTofind = Parent.ShoppingList.itemToPurchase();
-          //  Console.WriteLine(itemTofind.ToString());
-            return grid.FindNodeByItemType(itemTofind);
+            //  Console.WriteLine(itemTofind.ToString());
+            Node start = grid.FindnodeAtGridpos(Parent.Transform.GridPos);
+            Node end = grid.FindNodeByItemType(itemTofind);
+
+            Astar aStar = new Astar();
+            aStar.FindPath(start, end, grid);
         }
 
     }

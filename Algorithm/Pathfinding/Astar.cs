@@ -8,14 +8,14 @@ namespace Algorithm
 {
     class Astar
     {
-        public List<Node> path;
+     //   public List<Node> path;
 
         public void FindPath(Node start, Node end, Grid snapshotGrid)
         {
             List<Node> openList = new List<Node>();
             List<Node> closedList = new List<Node>();
 
-            bool debiggin = true;
+            bool ShowDebugStats = true;
 
             openList.Add(start);        //slide 1
             Node currentNode = start;   //slide 1
@@ -54,13 +54,14 @@ namespace Algorithm
                         n.Parent = currentNode;     //slide 4 - 9.3
                     }
 
-                    if (debiggin)       //DEBUG
+                    if (ShowDebugStats)       //DEBUG
                     {
                         string gCost = $"{n.GCost}";
                         string hCost = $"{n.HCost}";
                         string FCost = $"{n.FCost}";
 
-                        
+                        GameObject floor = GameWorld.ShopGo[n.GridPos.X, n.GridPos.Y];
+                        floor.FontRenderer.SetContent(@"g: " + gCost + "\nh: " + hCost + "\nf: " + FCost);
 
                     }
                 }
@@ -99,7 +100,7 @@ namespace Algorithm
 
             if(finalPath.Count > 0)
             {
-                finalPath = finalPath.Reverse();
+                finalPath.Reverse();
             }
         }
     }

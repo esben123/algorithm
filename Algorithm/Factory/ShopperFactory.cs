@@ -39,6 +39,7 @@ namespace Algorithm
             switch (name)
             {
                 case "shopper":
+                    ShopperManager.Shoppers.Add(obj);
                     break;
             }
 
@@ -46,7 +47,7 @@ namespace Algorithm
             GameWorld.Instance.AddGameObject(obj);
 
             
-          Console.WriteLine(obj.ShopperAi.GetGoal().GridPos);
+         // Console.WriteLine(obj.ShopperAi.FindPathToGoal());
         }
     }
 }

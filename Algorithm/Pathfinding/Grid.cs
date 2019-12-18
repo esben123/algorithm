@@ -16,7 +16,7 @@ namespace Algorithm
             CreateGrid();
         }
 
-         string testString ="";
+       //  string testString ="";
 
         public void CreateGrid()
         {

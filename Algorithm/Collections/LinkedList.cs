@@ -85,9 +85,27 @@ namespace Algorithm
                 return; //We exit the method if the list is empty.
             }
 
+            if (current.item.Equals(t))
+            {
+                if (current.next != null)
+                    head = current.next;
+                else
+                    head = null;
+            }
+                
+
+
             while (current.next != null)
             {
+                if (current.next.item.Equals(t))
+                {
+                    if (current.next.next != null)
+                        current.next = current.next.next;
+                    else
+                        current.next = null;
+                }
 
+                current = current.next;
             }
 
         }

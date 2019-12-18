@@ -15,16 +15,19 @@ namespace Algorithm
             List<Node> openList = new List<Node>();
             List<Node> closedList = new List<Node>();
 
-            openList.Add(start);
+            bool debiggin = true;
+
+            openList.Add(start);        //slide 1
             Node currentNode = start;   //slide 1
 
-            while (openList.Count > 0)                      //slide 7
+            while (openList.Count > 0)                      //slide 7 --- slide 10
             {
                 foreach (Node openNode in openList)         //slide 7
                     if (openNode.FCost < currentNode.FCost) //slide 7
                         currentNode = openNode;             //slide 7
 
                 List<Node> neighbouringNodes = snapshotGrid.GetNeighbours(currentNode); //slide 2 
+
                 foreach (Node nNode in neighbouringNodes)   //slide 9.2
                     if (!openList.Contains(nNode))          //slide 9.2
                         openList.Add(nNode);                //slide 9.2
@@ -32,23 +35,38 @@ namespace Algorithm
                 closedList.Add(currentNode);    //slide 5 + 8
 
 
-                foreach (Node n in neighbouringNodes)       //slide 3
+                if (currentNode.GridPos == end.GridPos)         //slide 10  (path found)
                 {
-                     int score = currentNode.GCost + GetHcost(n, end);
-
-                    n.Parent = currentNode;     //slide 4 - 9.3
-
-                    n.GCost = currentNode.GCost + MoveCost(currentNode, n);     //slide 6
-                    n.HCost = GetHcost(n, end);                                 //slide 6
-
-                    if (!openList.Contains(n))              //slide 3
-                        openList.Add(n);                    //slide 3
-                    else if ()                  //slide 9.4
-
+                    GetFinalPath(start, currentNode);           //slide 10
+                    break;
                 }
-            }
-           
 
+                foreach (Node n in neighbouringNodes)       //slide 3 + 9
+                {
+                     int tempGCost = currentNode.GCost + MoveCost(currentNode, n);      //gcost indtil videre + gcost fra current node til neighbour (9.4)
+
+                    if (!openList.Contains(n))              //slide 3 + 9.2
+                        openList.Add(n);                    //slide 3 + 9.2
+                    else if (tempGCost < n.GCost) //slide 9.4 eller 9.5?
+                    {
+                        n.GCost = tempGCost;                                        //slide 6
+                        n.HCost = GetHcost(n, end);                                 //slide 6
+                        n.Parent = currentNode;     //slide 4 - 9.3
+                    }
+
+                    if (debiggin)       //DEBUG
+                    {
+                        string gCost = $"{n.GCost}";
+                        string hCost = $"{n.HCost}";
+                        string FCost = $"{n.FCost}";
+
+                        
+
+                    }
+                }
+
+              
+            }
         }
 
         public int GetHcost(Node a, Node b) //ManhattanDistance
@@ -68,20 +86,20 @@ namespace Algorithm
                 return 10;
         }
 
-        private void FinalPath(Node startingPoint, Node endPoint)
+        private void GetFinalPath(Node startNode, Node endNode)
         {
             List<Node> finalPath = new List<Node>();
-            Node current = endPoint;
+            Node current = endNode;
 
-            while(current !=null && current.GridPos != startingPoint.GridPos)
+            while(current !=null && current.GridPos != startNode.GridPos)
             {
-                finalPath.Add(current);
-                current = current.Parent;
+                finalPath.Add(current);                                         //slide 10.2
+                current = current.Parent;                                       //slide 10.2
             }
 
             if(finalPath.Count > 0)
             {
-                path = finalPath;
+                finalPath = finalPath.Reverse();
             }
         }
     }

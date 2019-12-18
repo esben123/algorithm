@@ -11,7 +11,7 @@ namespace Algorithm
 {
     public class GameObject
     {
-        private List<Component> components = new List<Component>();
+        private SmarterLinkedList<Component> components = new SmarterLinkedList<Component>();
         private SpriteRenderer spriteRenderer;
         private FontRenderer fontRenderer;
         private Transform transform;

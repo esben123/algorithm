@@ -10,9 +10,9 @@ namespace Algorithm
     public static class Shop
     {
 
-        static List<GameObject> ShopElements = new List<GameObject>();
+        static SmarterLinkedList<GameObject> ShopElements = new SmarterLinkedList<GameObject>();
 
-        public static List<GameObject> ItemsForSale { get => ShopElements; set => ShopElements = value; }
+        public static SmarterLinkedList<GameObject> ItemsForSale { get => ShopElements; set => ShopElements = value; }
 
         public static Point GetPoint(Item item)
         {

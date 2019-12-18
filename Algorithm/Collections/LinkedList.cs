@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace Algorithm
 {
 
-    class LinkedList<T>
+    public class LinkedList<T>
     {
-        protected class LinkedListItem
+        public class LinkedListItem
         {
             public T item;
             public LinkedListItem next; //Reference to the next item
@@ -77,11 +77,9 @@ namespace Algorithm
             }
         }
 
-        public virtual void Remove(T item)
+        public virtual void Remove(T t)
         {
-            int len = CalculateLength(); //First we find the length of the list
             var current = head;
-            
             if (current == null) //We check if the list is empty
             {
                 return; //We exit the method if the list is empty.
@@ -89,15 +87,13 @@ namespace Algorithm
 
             while (current.next != null)
             {
-                if ()
-                {
 
-                }
             }
 
         }
         /// <summary>
-        /// Adds to the start of the list. 
+        /// Adds to the start of the 
+        /// . 
         /// </summary>
         /// <param name="item"></param>
         public virtual void AddToStart(T item)

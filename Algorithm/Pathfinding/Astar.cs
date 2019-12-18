@@ -11,8 +11,8 @@ namespace Algorithm
 
         public void FindPath(Node start, Node end)
         {
-            List<Node> openList;
-            List<Node> closedList;
+            SmarterLinkedList<Node> openList;
+            SmarterLinkedList<Node> closedList;
 
         }
 

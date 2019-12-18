@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 
+
 namespace Algorithm
 {
     /// <summary>
@@ -13,9 +14,9 @@ namespace Algorithm
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        LinkedList<GameObject> allGameObjects = new LinkedList<GameObject>();
-        LinkedList<GameObject> toBeAdded = new LinkedList<GameObject>();
-        LinkedList<GameObject> toBeRemoved = new LinkedList<GameObject>();
+        SmarterLinkedList<GameObject> allGameObjects = new SmarterLinkedList<GameObject>();
+        SmarterLinkedList<GameObject> toBeAdded = new SmarterLinkedList<GameObject>();
+        SmarterLinkedList<GameObject> toBeRemoved = new SmarterLinkedList<GameObject>();
 
         private static Point shopDimensions = new Point(24, 14);
         private static GameObject[,] shopGo;

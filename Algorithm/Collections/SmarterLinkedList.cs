@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithm
 {
-    class SmarterLinkedList<T> : LinkedList<T>
+    public class SmarterLinkedList<T> : LinkedList<T>
     {
         private LinkedListItem tail; //Always the end. Head = beginning.
         public int count = 0;

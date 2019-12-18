@@ -13,9 +13,9 @@ namespace Algorithm
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        List<GameObject> allGameObjects = new List<GameObject>();
-        List<GameObject> toBeAdded = new List<GameObject>();
-        List<GameObject> toBeRemoved = new List<GameObject>();
+        LinkedList<GameObject> allGameObjects = new LinkedList<GameObject>();
+        LinkedList<GameObject> toBeAdded = new LinkedList<GameObject>();
+        LinkedList<GameObject> toBeRemoved = new LinkedList<GameObject>();
 
         private static Point shopDimensions = new Point(24, 14);
         private static GameObject[,] shopGo;

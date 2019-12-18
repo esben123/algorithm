@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,7 +57,7 @@ namespace Algorithm
         /// Add to the end of the list. 
         /// </summary>
         /// <param name="item">Item to be added</param>
-        public virtual void Append(T item)
+        public virtual void Add(T item)
         {
             int len = CalculateLength(); //We first find the length of the list through our own method.
             if (head == null)//If the list is empty (no head), we set the new item to be the first item in the list.
@@ -75,16 +76,36 @@ namespace Algorithm
 
             }
         }
+
+        public virtual void Remove(T item)
+        {
+            int len = CalculateLength(); //First we find the length of the list
+            var current = head;
+            
+            if (current == null) //We check if the list is empty
+            {
+                return; //We exit the method if the list is empty.
+            }
+
+            while (current.next != null)
+            {
+                if ()
+                {
+
+                }
+            }
+
+        }
         /// <summary>
         /// Adds to the start of the list. 
         /// </summary>
         /// <param name="item"></param>
-        public virtual void Prepend(T item)
+        public virtual void AddToStart(T item)
         {
             head = new LinkedListItem(item, head); //We set the header to be the new item, and the old head to be the next.
         }
-        public virtual int Count => CalculateLength(); //Property to get the lenght of the list.
-        
+        public virtual int Count => CalculateLength(); //Property to get the length of the list.
+
         /// <summary>
         /// Removes the first item of the list. 
         /// </summary>
@@ -110,5 +131,21 @@ namespace Algorithm
             return t;
         }
 
+        public virtual void Clear()
+        {
+            head = null;
+
+        }
+
+        public virtual IEnumerator<T> GetEnumerator()
+        {
+            LinkedListItem current = head;
+
+            while (current != null)
+            {
+                yield return current.item;
+                current = current.next;
+            }
+        }
     }
 }

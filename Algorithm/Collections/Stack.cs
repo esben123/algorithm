@@ -22,7 +22,7 @@ namespace Algorithm
 
         public void Push(T item)
         {
-            list.Prepend(item);
+            list.AddToStart(item);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Algorithm
         /// Appends into the smarter linked list. 
         /// </summary>
         /// <param name="item"></param>
-        public override void Append(T item)
+        public override void Add(T item)
         {
             //If there is no item in the list, we set the head to be the item in method's parameter.
             if (head == null)
@@ -34,9 +34,9 @@ namespace Algorithm
 
         public override int Count => count;
 
-        public override void Prepend(T item)
+        public override void AddToStart(T item)
         {
-            base.Prepend(item);
+            base.AddToStart(item);
         }
         public override T RemoveFirst()
         {
@@ -49,6 +49,10 @@ namespace Algorithm
         public override string ToString()
         {
             return base.ToString();
+        }
+        public override void Clear()
+        {
+            base.Clear();
         }
     }
 }

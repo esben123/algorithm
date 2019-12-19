@@ -34,9 +34,9 @@ namespace Algorithm
 
         }
 
-        public List<Node> GetNeighbours(Node node)
+        public SmarterLinkedList<Node> GetNeighbours(Node node)
         {
-            List<Node> neighbours = new List<Node>();
+            SmarterLinkedList<Node> neighbours = new SmarterLinkedList<Node>();
 
             for (int y = -1; y <= 1; y++)
             {

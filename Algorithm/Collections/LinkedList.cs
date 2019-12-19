@@ -92,8 +92,6 @@ namespace Algorithm
                 else
                     head = null;
             }
-                
-
 
             while (current.next != null)
             {
@@ -132,17 +130,28 @@ namespace Algorithm
 
         }
 
-        public virtual T RemoveLast()
+        public virtual void RemoveLast()
         {
-            var t = head.item;
             var current = head;
-            while (current.next != null) //We follow the list until we find the last item.
+            if (current == null) //We check if the list is empty
             {
-                current = current.next;
+                return; //We exit the method if the list is empty.
             }
 
+            if (current.next == null)
+            {
+                head = null;
+            }
 
-            return t;
+            while (current.next != null)
+            {
+                if (current.next.next == null)
+                {
+                    current.next = null;
+                    return;
+                }
+                current = current.next;
+            }
         }
 
         public virtual void Clear()

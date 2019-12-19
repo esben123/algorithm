@@ -34,6 +34,10 @@ namespace Algorithm
 
         public override int Count => count;
 
+        public override void RemoveLast()
+        {
+            base.RemoveLast();
+        }
         public override void AddToStart(T item)
         {
             base.AddToStart(item);
@@ -42,10 +46,7 @@ namespace Algorithm
         {
             return base.RemoveFirst();
         }
-        public override T RemoveLast()
-        {
-            return base.RemoveLast();
-        }
+       
         public override string ToString()
         {
             return base.ToString();

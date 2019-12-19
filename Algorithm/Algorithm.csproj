@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Collections\LinkedList.cs" />
     <Compile Include="Collections\MyArrayList.cs" />
+    <Compile Include="Collections\Queue.cs" />
     <Compile Include="Pathfinding\Grid.cs" />
     <Compile Include="Pathfinding\Astar.cs" />
     <Compile Include="Components\Component.cs" />

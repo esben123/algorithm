@@ -26,7 +26,7 @@ namespace Algorithm
             {
                 for (int x = 1; x < GameWorld.ShopDimensions.X; x++)
                 {
-                    bool isFilled = GameWorld.ShopGo[x, y].Item == Item.Nothing;
+                    bool isFilled = GameWorld.ShopGo[x, y].Item != Item.Nothing;
                     allNodes[x,y] = new Node(new Point(x, y), isFilled);
 
                   //  testString += isFilled.ToString();

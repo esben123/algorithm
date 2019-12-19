@@ -43,9 +43,10 @@ namespace Algorithm
                 foreach (Node n in neighbouringNodes)       //slide 3 + 9
                 {
                      int tempGCost = currentNode.GCost + MoveCost(currentNode, n);      //gcost indtil videre + gcost fra current node til neighbour (9.4)
-                    Console.WriteLine("temp" +tempGCost);
                     if (!openList.Contains(n) && !closedList.Contains(n))              //slide 3 + 9.2
                         openList.Add(n);                    //slide 3 + 9.2
+
+                    Console.WriteLine(n.GridPos);
 
                     if (n.GCost > tempGCost) //slide 9.4 eller 9.5?
                     {
@@ -66,7 +67,6 @@ namespace Algorithm
 
                         GameObject floor = GameWorld.ShopGo[n.GridPos.X, n.GridPos.Y];
                         floor.FontRenderer.SetContent(@"g: " + gCost + "\nh: " + hCost + "\nf: " + FCost);
-                        Console.WriteLine(gCost);
                     }
                 }
                // break;

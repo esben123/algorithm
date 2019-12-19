@@ -34,16 +34,23 @@ namespace Algorithm
 
         public override int Count => count;
 
+        public override void Remove(T t)
+        {
+            count--;
+            base.Remove(t);
+        }
         public override void AddToStart(T item)
         {
             base.AddToStart(item);
         }
         public override T RemoveFirst()
         {
+            count--;
             return base.RemoveFirst();
         }
         public override T RemoveLast()
         {
+            count--;
             return base.RemoveLast();
         }
         public override string ToString()

@@ -72,7 +72,7 @@ namespace Algorithm
                     else if (x == 13 && y < shopDimensions.Y - 9)
                         ShopFactory.Instance.create("wall", new Point(x, y));
                     else
-                        ShopFactory.Instance.create("1pxbg", new Point(x, y));
+                        ShopFactory.Instance.create("floor", new Point(x, y)); //TODO: change back to floor
                 }
             }
             ShopFactory.Instance.create("helmets", new Point(7, 1));

@@ -38,12 +38,7 @@ namespace Algorithm
                 item = (Item)itemIndex;
                 itemsToPurchase.Add(item);
             }
-            foreach (Item item in itemsToPurchase)
-            {
-                Console.WriteLine(item.ToString());
-            }
         }
-
 
         public string GetList()
         {

@@ -27,11 +27,11 @@ namespace Algorithm
                     if (openNode.FCost < currentNode.FCost) //slide 7
                         currentNode = openNode;             //slide 7
 
-                Console.WriteLine("gridpos " + currentNode.GridPos);
 
                 if (currentNode.GridPos == end.GridPos)         //slide 10  (path found)
                 {
                     GetFinalPath(start, currentNode);           //slide 10
+                    Console.WriteLine("paaath");
                     break;
                 }
 
@@ -46,7 +46,6 @@ namespace Algorithm
                     if (!openList.Contains(n) && !closedList.Contains(n))              //slide 3 + 9.2
                         openList.Add(n);                    //slide 3 + 9.2
 
-                    Console.WriteLine(n.GridPos);
 
                     if (n.GCost > tempGCost) //slide 9.4 eller 9.5?
                     {

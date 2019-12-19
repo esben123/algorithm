@@ -104,6 +104,13 @@
 /processorParam:TextureFormat=Color
 /build:shopper.png
 
+#begin smallFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:smallFont.spritefont
+
 #begin spear.png
 /importer:TextureImporter
 /processor:TextureProcessor

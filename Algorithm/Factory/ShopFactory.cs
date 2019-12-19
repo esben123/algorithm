@@ -37,7 +37,7 @@ namespace Algorithm
             {
                 case "floor":
                  
-                break;
+                    break;
                 case "torso":
                     obj.Item = Item.Armour;
                     spr.RenderOffset = new Vector2(0, -6);

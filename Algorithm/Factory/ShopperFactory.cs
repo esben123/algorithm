@@ -27,7 +27,7 @@ namespace Algorithm
             Transform tx = new Transform(gridPos);
             SpriteRenderer spr = new SpriteRenderer(name);
             ShoppingList sl = new ShoppingList();
-            FontRenderer fr = new FontRenderer(sl.GetList());
+            FontRenderer fr = new FontRenderer(sl.GetList(), true);
             ShopperAi sai = new ShopperAi();
 
             obj.AddComponent(tx);

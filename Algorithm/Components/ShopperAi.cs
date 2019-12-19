@@ -20,7 +20,6 @@ namespace Algorithm
         {
            
            grid = new Grid();
-            Console.WriteLine("trying shlazzl");
             Item itemTofind = Parent.ShoppingList.itemToPurchase();
             //  Console.WriteLine(itemTofind.ToString());
             Node start = grid.FindnodeAtGridpos(Parent.Transform.GridPos);

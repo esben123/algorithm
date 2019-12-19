@@ -28,10 +28,6 @@ namespace Algorithm
 
                 List<Node> neighbouringNodes = snapshotGrid.GetNeighbours(currentNode); //slide 2 
 
-                foreach (Node nNode in neighbouringNodes)   //slide 9.2
-                    if (!openList.Contains(nNode))          //slide 9.2
-                        openList.Add(nNode);                //slide 9.2
-
                 closedList.Add(currentNode);    //slide 5 + 8
 
 

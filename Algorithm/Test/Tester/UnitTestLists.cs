@@ -125,5 +125,25 @@ namespace Tester
 
 
         }
+
+        //Test linked list string
+        [TestMethod]
+        public void TestLinkedListString()
+        {
+            //Arrange
+            SmarterLinkedList<string> test7 = new SmarterLinkedList<string>();
+            //Act
+            test7.Add("a");
+            test7.Add("b");
+            test7.Add("c");
+            test7.Add("d");
+            test7.Add("e");
+
+            //Assert
+            Assert.IsTrue(test7.Count == 5);
+
+
+        }
+        
     }
 }

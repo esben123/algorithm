@@ -9,14 +9,15 @@ namespace Algorithm
 {
     class Astar
     {
-     //   public List<Node> path;
+        //   public List<Node> path;
+        bool ShowDebugStats = true;
+
 
         public void FindPath(Node start, Node end, Grid snapshotGrid)
         {
             List<Node> openList = new List<Node>();
             List<Node> closedList = new List<Node>();
 
-            bool ShowDebugStats = true;
 
             openList.Add(start);        //slide 1
             Node currentNode = start;   //slide 1
@@ -48,20 +49,12 @@ namespace Algorithm
                         openList.Add(n);                    //slide 3 + 9.2
 
 
-                        if (n.GCost== 0) //slide 9.4 eller 9.5?
+                        if (n.GCost== 0 || n.GCost > 0 && tempGCost < n.GCost) //slide 9.4 eller 9.5?
                         {
                             n.GCost = tempGCost;                                        //slide 6
                             n.HCost = GetHcost(n, end);                                 //slide 6
                             n.Parent = currentNode;     //slide 4 - 9.3
                         }
-                        else if (n.GCost > 0 && tempGCost < n.GCost)
-                        {
-
-                            n.GCost = tempGCost;                                        //slide 6
-                            n.HCost = GetHcost(n, end);                                 //slide 6
-                            n.Parent = currentNode;     //slide 4 - 9.3
-                        }
-
                     }
                        
 
@@ -102,10 +95,15 @@ namespace Algorithm
             List<Node> finalPath = new List<Node>();
             Node current = endNode;
 
-            while(current !=null && current.GridPos != startNode.GridPos)
+            while(current !=null && current.GridPos != startNode.GridPos)       //slide 10.2
             {
-                GameObject floor = GameWorld.ShopGo[current.GridPos.X, current.GridPos.Y];
-                floor.FontRenderer.RenderColor = Color.Green;                                         //slide 10.2
+                finalPath.Add(current);
+
+                if (ShowDebugStats)
+                {
+                    GameObject floor = GameWorld.ShopGo[current.GridPos.X, current.GridPos.Y];
+                    floor.FontRenderer.RenderColor = Color.Green;
+                }                                                       
                 current = current.Parent;                                       //slide 10.2
             }
 

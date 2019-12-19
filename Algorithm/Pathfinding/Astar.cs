@@ -26,6 +26,8 @@ namespace Algorithm
                     if (openNode.FCost < currentNode.FCost) //slide 7
                         currentNode = openNode;             //slide 7
 
+                Console.WriteLine(openList.Count);
+
                 List<Node> neighbouringNodes = snapshotGrid.GetNeighbours(currentNode); //slide 2 
 
                 closedList.Add(currentNode);    //slide 5 + 8
@@ -40,10 +42,14 @@ namespace Algorithm
                 foreach (Node n in neighbouringNodes)       //slide 3 + 9
                 {
                      int tempGCost = currentNode.GCost + MoveCost(currentNode, n);      //gcost indtil videre + gcost fra current node til neighbour (9.4)
-
+                    Console.WriteLine("temp" +tempGCost);
                     if (!openList.Contains(n))              //slide 3 + 9.2
                         openList.Add(n);                    //slide 3 + 9.2
-                    else if (tempGCost < n.GCost) //slide 9.4 eller 9.5?
+
+                    if (tempGCost > n.GCost) //slide 9.4 eller 9.5?
+                    { 
+                    }
+                    else
                     {
                         n.GCost = tempGCost;                                        //slide 6
                         n.HCost = GetHcost(n, end);                                 //slide 6
@@ -58,10 +64,10 @@ namespace Algorithm
 
                         GameObject floor = GameWorld.ShopGo[n.GridPos.X, n.GridPos.Y];
                         floor.FontRenderer.SetContent(@"g: " + gCost + "\nh: " + hCost + "\nf: " + FCost);
-
+                        Console.WriteLine(gCost);
                     }
                 }
-
+                break;
               
             }
         }

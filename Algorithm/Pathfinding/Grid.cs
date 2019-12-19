@@ -33,11 +33,8 @@ namespace Algorithm
                 //    testString += " ";
                 }
               //  testString += "\n";
-
             }
-
            // Console.WriteLine(testString);
-
         }
 
         public Node FindnodeAtGridpos(Point gridPos)
@@ -75,10 +72,10 @@ namespace Algorithm
                     int checkX = node.GridPos.X + x;
                     int checkY = node.GridPos.Y + y;
 
-                    if (checkX >= 0 && checkX < allNodes.GetLength(1) && checkY >= 0 && checkY < allNodes.GetLength(0)) //check for out of bounds
+                    if (checkX >= 1 && checkX < allNodes.GetLength(0)  && checkY >= 1 && checkY < allNodes.GetLength(1) ) //check for out of bounds
                     {
-                        if (!allNodes[checkY, checkX].IsFilled)
-                            neighbours.Add(allNodes[checkY, checkX]); 
+                        if (!allNodes[checkX, checkY].IsFilled)
+                            neighbours.Add(allNodes[checkX, checkY]); 
                     }
                 }
             }

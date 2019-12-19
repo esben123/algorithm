@@ -22,16 +22,12 @@ namespace Algorithm
 
             while (openList.Count > 0)                      //slide 7 --- slide 10
             {
+                currentNode = openList[0];
                 foreach (Node openNode in openList)         //slide 7
                     if (openNode.FCost < currentNode.FCost) //slide 7
                         currentNode = openNode;             //slide 7
 
-                Console.WriteLine(openList.Count);
-
-                List<Node> neighbouringNodes = snapshotGrid.GetNeighbours(currentNode); //slide 2 
-
-                closedList.Add(currentNode);    //slide 5 + 8
-
+                Console.WriteLine("gridpos " + currentNode.GridPos);
 
                 if (currentNode.GridPos == end.GridPos)         //slide 10  (path found)
                 {
@@ -39,18 +35,24 @@ namespace Algorithm
                     break;
                 }
 
+                List<Node> neighbouringNodes = snapshotGrid.GetNeighbours(currentNode); //slide 2 
+
+                closedList.Add(currentNode);    //slide 5 + 8
+                openList.Remove(currentNode);
+
                 foreach (Node n in neighbouringNodes)       //slide 3 + 9
                 {
                      int tempGCost = currentNode.GCost + MoveCost(currentNode, n);      //gcost indtil videre + gcost fra current node til neighbour (9.4)
                     Console.WriteLine("temp" +tempGCost);
-                    if (!openList.Contains(n))              //slide 3 + 9.2
+                    if (!openList.Contains(n) && !closedList.Contains(n))              //slide 3 + 9.2
                         openList.Add(n);                    //slide 3 + 9.2
 
-                    if (tempGCost > n.GCost) //slide 9.4 eller 9.5?
-                    { 
+                    if (n.GCost > tempGCost) //slide 9.4 eller 9.5?
+                    {
                     }
                     else
                     {
+
                         n.GCost = tempGCost;                                        //slide 6
                         n.HCost = GetHcost(n, end);                                 //slide 6
                         n.Parent = currentNode;     //slide 4 - 9.3
@@ -67,7 +69,7 @@ namespace Algorithm
                         Console.WriteLine(gCost);
                     }
                 }
-                break;
+               // break;
               
             }
         }

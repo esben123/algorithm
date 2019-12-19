@@ -24,7 +24,7 @@ namespace Algorithm
             //  Console.WriteLine(itemTofind.ToString());
             Node start = grid.FindnodeAtGridpos(Parent.Transform.GridPos);
             Node end = grid.FindNodeByItemType(itemTofind);
-
+            Console.WriteLine("s" + start.GridPos + " e  " + end.GridPos);
             Astar aStar = new Astar();
             aStar.FindPath(start, end, grid);
         }

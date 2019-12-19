@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,10 +29,9 @@ namespace Algorithm
                         currentNode = openNode;             //slide 7
 
 
-                if (currentNode.GridPos == end.GridPos)         //slide 10  (path found)
+                if (GetHcost(currentNode, end) < 20)         //slide 10  (path found) //hacked to 1 square from goal
                 {
                     GetFinalPath(start, currentNode);           //slide 10
-                    Console.WriteLine("paaath");
                     break;
                 }
 
@@ -44,19 +44,26 @@ namespace Algorithm
                 {
                      int tempGCost = currentNode.GCost + MoveCost(currentNode, n);      //gcost indtil videre + gcost fra current node til neighbour (9.4)
                     if (!openList.Contains(n) && !closedList.Contains(n))              //slide 3 + 9.2
+                    {
                         openList.Add(n);                    //slide 3 + 9.2
 
 
-                    if (n.GCost > tempGCost) //slide 9.4 eller 9.5?
-                    {
-                    }
-                    else
-                    {
+                        if (n.GCost== 0) //slide 9.4 eller 9.5?
+                        {
+                            n.GCost = tempGCost;                                        //slide 6
+                            n.HCost = GetHcost(n, end);                                 //slide 6
+                            n.Parent = currentNode;     //slide 4 - 9.3
+                        }
+                        else if (n.GCost > 0 && tempGCost < n.GCost)
+                        {
 
-                        n.GCost = tempGCost;                                        //slide 6
-                        n.HCost = GetHcost(n, end);                                 //slide 6
-                        n.Parent = currentNode;     //slide 4 - 9.3
+                            n.GCost = tempGCost;                                        //slide 6
+                            n.HCost = GetHcost(n, end);                                 //slide 6
+                            n.Parent = currentNode;     //slide 4 - 9.3
+                        }
+
                     }
+                       
 
                     if (ShowDebugStats)       //DEBUG
                     {
@@ -78,7 +85,7 @@ namespace Algorithm
             int x = Math.Abs(a.GridPos.X - b.GridPos.X);
             int y = Math.Abs(a.GridPos.Y - b.GridPos.Y);
 
-            return x + y;
+            return (x + y) * 10;
         }
 
         public int MoveCost(Node current, Node other)
@@ -97,7 +104,8 @@ namespace Algorithm
 
             while(current !=null && current.GridPos != startNode.GridPos)
             {
-                finalPath.Add(current);                                         //slide 10.2
+                GameObject floor = GameWorld.ShopGo[current.GridPos.X, current.GridPos.Y];
+                floor.FontRenderer.RenderColor = Color.Green;                                         //slide 10.2
                 current = current.Parent;                                       //slide 10.2
             }
 

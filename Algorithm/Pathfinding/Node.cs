@@ -10,7 +10,6 @@ namespace Algorithm
     public class Node
     {
        
-        private int fCost = 0;
         public int GCost { get; set; }
         public int HCost { get; set; }
         public int FCost { get => HCost + GCost; }

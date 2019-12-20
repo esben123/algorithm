@@ -61,7 +61,7 @@
     <Compile Include="Components\ShoppingList.cs" />
     <Compile Include="Factory\ShopFactory.cs" />
     <Compile Include="Factory\ShopperFactory.cs" />
-    <Compile Include="Shop.cs" />
+    <Compile Include="ShopperManager.cs" />
     <Compile Include="Components\ShopperAi.cs" />
     <Compile Include="Collections\SmarterLinkedList.cs" />
     <Compile Include="Collections\Stack.cs" />

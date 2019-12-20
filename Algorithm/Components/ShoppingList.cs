@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,12 +38,7 @@ namespace Algorithm
                 item = (Item)itemIndex;
                 itemsToPurchase.Add(item);
             }
-            foreach (Item item in itemsToPurchase)
-            {
-                Console.WriteLine(item.ToString());
-            }
         }
-
 
         public string GetList()
         {
@@ -55,6 +51,11 @@ namespace Algorithm
                     list += "\n";
             }
             return list;
+        }
+
+        public Item itemToPurchase()
+        {
+            return itemsToPurchase[0];
         }
 
         public void RemoveItem()

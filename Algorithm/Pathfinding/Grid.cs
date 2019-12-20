@@ -10,7 +10,13 @@ namespace Algorithm
     public class Grid
     {
         private Node[,] allNodes;
-       // string testString ="";
+
+        public Grid()
+        {
+            CreateGrid();
+        }
+
+       //  string testString ="";
 
         public void CreateGrid()
         {
@@ -20,18 +26,36 @@ namespace Algorithm
             {
                 for (int x = 1; x < GameWorld.ShopDimensions.X; x++)
                 {
-                    bool isFilled = GameWorld.ShopGo[x, y].Item == Item.Nothing;
+                    bool isFilled = GameWorld.ShopGo[x, y].Item != Item.Nothing;
                     allNodes[x,y] = new Node(new Point(x, y), isFilled);
 
-         //           testString += isFilled.ToString();
-           //         testString += " ";
+                  //  testString += isFilled.ToString();
+                //    testString += " ";
                 }
-             //   testString += "\n";
-
+              //  testString += "\n";
             }
-
            // Console.WriteLine(testString);
+        }
 
+        public Node FindnodeAtGridpos(Point gridPos)
+        {
+            return allNodes[gridPos.X, gridPos.Y];
+        }
+
+        public Node FindNodeByItemType(Item item)
+        {
+            GameObject temp = new GameObject(); ;
+
+            for (int y = 1; y < GameWorld.ShopDimensions.Y; y++)
+            {
+                for (int x = 1; x < GameWorld.ShopDimensions.X; x++)
+                {
+                    temp = GameWorld.ShopGo[x, y];
+                    if (temp.Item == item)
+                        return FindnodeAtGridpos(temp.Transform.GridPos);
+                }
+            }
+                return null;
         }
 
         public SmarterLinkedList<Node> GetNeighbours(Node node)
@@ -48,10 +72,10 @@ namespace Algorithm
                     int checkX = node.GridPos.X + x;
                     int checkY = node.GridPos.Y + y;
 
-                    if (checkX >= 0 && checkX < allNodes.GetLength(1) && checkY >= 0 && checkY < allNodes.GetLength(0)) //check for out of bounds
+                    if (checkX >= 1 && checkX < allNodes.GetLength(0)  && checkY >= 1 && checkY < allNodes.GetLength(1) ) //check for out of bounds
                     {
-                        if (!allNodes[checkY, checkX].IsFilled)
-                            neighbours.Add(allNodes[checkY, checkX]); 
+                        if (!allNodes[checkX, checkY].IsFilled)
+                            neighbours.Add(allNodes[checkX, checkY]); 
                     }
                 }
             }

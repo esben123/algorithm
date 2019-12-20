@@ -62,30 +62,30 @@ namespace Algorithm
                 for (int x = 1; x < shopDimensions.X; x++)
                 {
                     if(x == 1 || x == shopDimensions.X -1)
-                        TileFactory.Instance.create("wall", new Point(x, y));
+                        ShopFactory.Instance.create("wall", new Point(x, y));
                     else if (x == 5 && y < shopDimensions.Y - 5)
-                        TileFactory.Instance.create("wall", new Point(x, y));
+                        ShopFactory.Instance.create("wall", new Point(x, y));
                     else if (x > 8 && x < shopDimensions.X - 5 && y == shopDimensions.Y - 9)
-                        TileFactory.Instance.create("wall", new Point(x, y));
+                        ShopFactory.Instance.create("wall", new Point(x, y));
                     else if (x > 9 && x < shopDimensions.X - 6 && y == shopDimensions.Y - 5)
-                        TileFactory.Instance.create("wall", new Point(x, y));
+                        ShopFactory.Instance.create("wall", new Point(x, y));
                     else if (x == 13 && y < shopDimensions.Y - 9)
-                        TileFactory.Instance.create("wall", new Point(x, y));
+                        ShopFactory.Instance.create("wall", new Point(x, y));
                     else
-                        TileFactory.Instance.create("floor", new Point(x, y));
+                        ShopFactory.Instance.create("floor", new Point(x, y)); //TODO: change back to floor
                 }
             }
-            TileFactory.Instance.create("helmets", new Point(7, 1));
-            TileFactory.Instance.create("book_big", new Point(2, 1));
-            TileFactory.Instance.create("book_small", new Point(19, 1));
-            TileFactory.Instance.create("spear", new Point(14, shopDimensions.Y - 4));
-            TileFactory.Instance.create("torso", new Point(16,1));
-            TileFactory.Instance.create("register", new Point(shopDimensions.X - 3, shopDimensions.Y - 3));
+            ShopFactory.Instance.create("helmets", new Point(7, 1));
+            ShopFactory.Instance.create("book_big", new Point(2, 1));
+            ShopFactory.Instance.create("book_small", new Point(19, 1));
+            ShopFactory.Instance.create("spear", new Point(14, shopDimensions.Y - 4));
+            ShopFactory.Instance.create("torso", new Point(16,1));
+            ShopFactory.Instance.create("register", new Point(shopDimensions.X - 3, shopDimensions.Y - 3));
 
 
-            Grid testGrid = new Grid();
-            testGrid.CreateGrid();
+           
             ShopperFactory.Instance.create("shopper", new Point(2, shopDimensions.Y - 2));
+            ShopperManager.GetMoving();
         }
 
         /// <summary>

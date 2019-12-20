@@ -36,7 +36,7 @@ namespace Algorithm
                     break;
                 }
 
-                List<Node> neighbouringNodes = snapshotGrid.GetNeighbours(currentNode); //slide 2 
+                SmarterLinkedList<Node> neighbouringNodes = snapshotGrid.GetNeighbours(currentNode); //slide 2 
 
                 closedList.Add(currentNode);    //slide 5 + 8
                 openList.Remove(currentNode);

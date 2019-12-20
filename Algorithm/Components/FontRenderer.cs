@@ -18,7 +18,7 @@ namespace Algorithm
         Texture2D dummyTexture;
         Rectangle dummyRectangle;
         Vector2 fontsize;
-        bool enableBg = false;
+        bool enableBg = false; //hack instead of making derived class
 
 
         public Color RenderColor { get => renderColor; set => renderColor = value; }

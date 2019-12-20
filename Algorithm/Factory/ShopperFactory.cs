@@ -17,8 +17,7 @@ namespace Algorithm
                     instance = new ShopperFactory();
 
                 return instance;
-            }
-           
+            }      
         }
 
         public override void create(string name, Point gridPos)
@@ -44,10 +43,7 @@ namespace Algorithm
             }
 
             obj.LoadContent(GameWorld.Instance.Content);
-            GameWorld.Instance.AddGameObject(obj);
-
-            
-         // Console.WriteLine(obj.ShopperAi.FindPathToGoal());
+            GameWorld.Instance.AddGameObject(obj);          
         }
     }
 }

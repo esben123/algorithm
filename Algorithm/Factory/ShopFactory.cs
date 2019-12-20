@@ -12,7 +12,6 @@ namespace Algorithm
         private static ShopFactory instance;
         public static ShopFactory Instance        
         {
-
             get
             {
                 if (instance == null)
